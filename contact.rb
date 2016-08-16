@@ -98,8 +98,9 @@ class Contact
 
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
-  def delete
+  def delete(contact)
     
+
   end
 
   # Feel free to add other methods here, if you need them.
