@@ -31,8 +31,12 @@ class Contact
 
   # This method should accept an id as an argument
   # and return the contact who has that id
-  def self.find
-
+  def self.find(id)
+    @@contacts.each do |object|
+      if object.id == id
+        return object
+    end    
+    end
   end
 
   # This method should allow you to specify
