@@ -35,7 +35,7 @@ class Contact
     @@contacts.each do |object|
       if object.id == id
         return object
-    end    
+    end
     end
   end
 
@@ -43,8 +43,21 @@ class Contact
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
-  def update
+  ##attribute- which of four attributes being updated
+  #value- actual name that it is being changed to.
 
+  # def update(first_name, "d")
+    #@first_name =
+  def update(attribute_as_string, value)
+    if attribute_as_string == "first_name"
+      @first_name = value
+    elsif attribute_as_string == "last_name"
+      @last_name = value
+    elsif attribute_as_string == "email"
+      @email = value
+    elsif attribute_as_string == "note"
+      @note = value
+    end
   end
 
   # This method should work similarly to the find method above
