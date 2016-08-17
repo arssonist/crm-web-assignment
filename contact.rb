@@ -100,12 +100,26 @@ class Contact
 
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
-  def delete
-    @@contacts.collect! do |contact_on|
-      @@contacts.delete(contact_on).delete
+  #
+  # tested, non-working delete methods
+  # def delete
+  #   @@contacts.collect! do |contact_on|
+  #     @@contacts.delete(contact_on).delete
+  #   end
+  #
+  #
+  #   def delete_contact_on
+  #     @@contacts.each do |contact_on|
+  #       deleted << @@contacts.slice(contact_on)
+  #       deleted.delete
+  #     end
+    # end
+
+    def delete
+      @@contacts.delete(self)
     end
 
-  end
+
 
   # Feel free to add other methods here, if you need them.
 
