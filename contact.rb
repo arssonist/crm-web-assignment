@@ -35,6 +35,8 @@ class Contact
     @@contacts.each do |object|
       if object.id == id
         return object
+      else
+        puts "That is not a valid ID."  
       end
     end
   end
@@ -99,7 +101,7 @@ class Contact
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
   def delete(contact)
-    
+
 
   end
 
