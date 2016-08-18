@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 # Copy your entire Contact class from the old crm assignment here.
 # Then, run the following at the command line:
 #
 #   ruby test/contact_test.rb
 #
 # If your implementation of the Contact class is 'right', then you should see that all tests pass!
+=======
+>>>>>>> 16c57c824a8c2f440e1a2623bfbd54422784be47
 class Contact
 
   attr_reader :id, :contacts

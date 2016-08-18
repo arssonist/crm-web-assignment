@@ -4,5 +4,7 @@
 require 'sinatra'
 
 get '/' do
+  @crm_app_name = "Chris's App"
+  @time = Time.new
   erb :index
 end
