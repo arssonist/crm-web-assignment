@@ -1,9 +1,10 @@
 
-.nav-contact-bar {
+.nav-contact-bar ul a  {
   display: inline;
-  color: purple;
+  color: green;
 }
-/** {
+
+* {
   padding: 0px;
 }
 
@@ -32,8 +33,3 @@ foooter {
   padding-left: 20px;
   background-color: pink;
 }
-
-.nav-contact-bar {
-  display: inline;
-  color: purple;
-}*/
