@@ -6,31 +6,32 @@ require_relative 'contact'
 #
 Contact.create('Johnny', 'Bravo', 'johnny@bitmakerlabs.com', 'Rockstar')
 
- get '/' do
+# puts the app name and time
+get '/' do
   @crm_app_name = "the CRM web app"
   @time = Time.new
   erb :index
 end
 
+# gets all contacts
 get '/contacts' do
-  Contact.create('Mark', 'Zuckerberg', 'mark@facebook.com', 'CEO')
-  Contact.create('Sergey', 'Brin', 'sergey@google.com', 'Co-Founder')
-  Contact.create('Steve', 'Jobs', 'steve@apple.com', 'Visionary')
-
   erb :contacts
 end
 
+# gets create new contact
 get '/contacts/new' do
    erb :new_contact
 end
+
 
 post '/contacts' do
   puts params
   Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
   redirect to('/contacts')
+# the redirect is used to let us reconnect back to the page over and over.
 end
 
-get '/contacts/1' do
-  @contact = Contact.find(1)
+get '/contacts/:id' do
+  @contact = Contact.find(params[:id].to_i)
   erb :show_contact
 end

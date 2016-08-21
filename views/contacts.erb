@@ -8,10 +8,13 @@
     <h1>All Contacts</h1>
     <p>
       <ul>
+  <!-- this works by taking the contacts from the Contact.create function in the crm file -->
+
+  <!-- Also, the function is using the self.all function from the Contact page. -->
         <% Contact.all.each do |contact| %>
         <li><%= contact.first_name %> <%= contact.last_name %></li>
         <% end %>
-    </ul>
-    </p>
-  </body>
-</html>
+      </ul>
+      </p>
+    </body>
+  </html>
