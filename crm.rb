@@ -4,7 +4,7 @@
 require 'sinatra'
 require_relative 'contact'
 #
-Contact.create('Johnny', 'Bravo', 'johnny@bitmakerlabs.com', 'Rockstar')
+
 
 # puts the app name and time
 get '/' do

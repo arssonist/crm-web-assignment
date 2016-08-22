@@ -3,3 +3,15 @@
 <p><strong>Email:</strong> <%= @contact.email %></p>
 <p><strong>Note:</strong></p>
 <p><%= @contact.note %></p>
+<!-- This is find contact,linked to CRM to use instance variables with . to call id of current contact.
+ -->
+
+
+<form action='/contacts/<%= @contact.id %>' method='post'>
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Contact">
+</form> -->
+
+
+
+<!-- Adds a delete form and a submit button. --> --> -->
