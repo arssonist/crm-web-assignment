@@ -23,13 +23,32 @@ get '/contacts/new' do
   erb :new_contact
 end
 
-
-post '/contacts' do
-  puts params
-    Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
-  redirect to('/contacts')
+# Original post contacts
+#
+# post '/contacts' do
+#   puts params
+#     Contact.create(
+#     params[:first_name],
+#     params[:last_name],
+#     params[:email],
+#     params[:note]
+#     )
+#   redirect to('/contacts')
+#
 # the redirect is used to let us reconnect back to the page over and over.
+# end
+
+# post contacts with ActiveRecord
+post '/contacts' do
+  contact = Contact.create(
+  first_name: params[:first_name],
+  last_name:  params[:last_name],
+  email:      params[:email],
+  note:       params[:note],
+  )
+  redirect to('/contacts')
 end
+# putting variable infront of params makes it a getter/setter.
 
 #supposed to set gernerlization
 get '/contacts/:id' do
@@ -76,3 +95,8 @@ delete '/contacts/:id' do
     raise Sinatra::NotFound
   end
 end
+
+after do
+  ActiveRecord::Base.connection.close
+end
+#this will close the database connection after use.
