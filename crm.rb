@@ -32,7 +32,7 @@ post '/contacts' do
 end
 
 #supposed to set gernerlization
-  get '/contacts/:id' do
+get '/contacts/:id' do
   @contact = Contact.find(params[:id].to_i)
   if @contact
     erb :show_contact
@@ -40,7 +40,7 @@ end
     raise Sinatra::NotFound
   end
 end
-#non working code for gernalize showing a contact
+#non-working code for gernalize finding a contact
 get '/contacts/:id/edit' do
   @contact = Contact.find(params[:id].to_i)
     if @contact
@@ -65,7 +65,7 @@ put '/contacts/:id' do
   end
 end
 
-# 
+#
 # non-working code for deleting contact
 delete '/contacts/:id' do
   @contact = Contact.find(params[:id].to_i)

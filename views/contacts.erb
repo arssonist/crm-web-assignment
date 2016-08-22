@@ -12,11 +12,14 @@
 
   <!-- Also, the function is using the self.all function from the Contact page. -->
         <% Contact.all.each do |contact| %>
-        <li><%= contact.first_name %> <%= contact.last_name %></li>
+        <li> <a href='/contacts/<%= contact.id %>'><%= contact.first_name %> <%= contact.last_name %></a>
+</li>
         <% end %>
+
+
+
+
              </ul>
-        <a href=‘/contacts/><%= contact.id %>'</a>
-        
+           </p>
     </body>
   </html>
-<a href=‘/contacts/><%= contact.id %>'</a>
