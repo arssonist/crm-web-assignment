@@ -15,7 +15,8 @@
         <li><%= contact.first_name %> <%= contact.last_name %></li>
         <% end %>
              </ul>
-        <a href="<% Contact.all.each do |contact|
-        contact.id%><% end%>" </a>
+        <a href=‘/contacts/><%= contact.id %>'</a>
+        
     </body>
   </html>
+<a href=‘/contacts/><%= contact.id %>'</a>

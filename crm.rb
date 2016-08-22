@@ -20,30 +20,59 @@ end
 
 # gets create new contact
 get '/contacts/new' do
-   erb :new_contact
+  erb :new_contact
 end
 
 
 post '/contacts' do
   puts params
-  Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
+    Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
   redirect to('/contacts')
 # the redirect is used to let us reconnect back to the page over and over.
 end
 
-get '/contacts/:id' do
-  if @contact = Contact.find(params[:id].to_i)
-  erb :show_contact
-else
-  raise Sinatra::NotFound
+#supposed to set gernerlization
+  get '/contacts/:id' do
+  @contact = Contact.find(params[:id].to_i)
+  if @contact
+    erb :show_contact
+  else
+    raise Sinatra::NotFound
+  end
+end
+#non working code for gernalize showing a contact
+get '/contacts/:id/edit' do
+  @contact = Contact.find(params[:id].to_i)
+    if @contact
+      erb :edit_contact
+    else
+      raise Sinatra::NotFound
+    end
+end
+
+# non working code for editing a contact
+put '/contacts/:id' do
+  @contact = Contact.find(params[:id].to_i)
+  if @contact
+    @contact.first_name = params[:first_name]
+    @contact.last_name = params[:last_name]
+    @contact.email = params[:email]
+    @contact.note = params[:note]
+
+    redirect to('/contacts')
+  else
+    raise Sinatra::NotFound
   end
 end
 
-get '/contact/:id/edit' do
- @contact = Contact.find(params[:id].to_i)
-    if @contact
-      erb :edit_contact
-    elseç
-      raise Sinatra::NotFound
-    end
+# 
+# non-working code for deleting contact
+delete '/contacts/:id' do
+  @contact = Contact.find(params[:id].to_i)
+  if @contact
+    @contact.delete
+    redirect to('/contacts')
+  else
+    raise Sinatra::NotFound
+  end
 end
